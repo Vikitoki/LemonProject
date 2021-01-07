@@ -1,16 +1,36 @@
 // Burger btn ===============================================
 
-const burgerMenuBtn = document.querySelector("#burgerMenu"),
-  headerMenuBody = document.querySelector(".menu-header__body"),
+// Header ============================================================================
+
+const burgerMenuBtn = document.querySelector(".menu-header__icon"),
+  headerMobileMenu = document.querySelector(".header__mobile-menu"),
   header = document.querySelector(".header");
 
 burgerMenuBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  headerMenuBody.classList.toggle("active");
-  header.classList.toggle("active");
-  this.classList.toggle("active");
+  toggleHeader();
 });
+
+window.addEventListener("resize", function () {
+  toggleHeader();
+});
+
+document.documentElement.addEventListener("click", function (event) {
+  if (event.target && !event.target.closest(".header")) {
+    headerMobileMenu.classList.remove("active");
+    header.classList.remove("active");
+    burgerMenuBtn.classList.remove("active");
+    document.body.classList.remove("lock");
+  }
+});
+
+function toggleHeader() {
+  headerMobileMenu.classList.toggle("active");
+  header.classList.toggle("active");
+  burgerMenuBtn.classList.toggle("active");
+  document.body.classList.toggle("lock");
+}
 
 //   Filter group ===============================================
 
@@ -108,16 +128,16 @@ function scrollSpy() {
 
 // Turn img to background ===========================================
 
-const ibgBlocks = document.querySelectorAll("._ibg");
+const ibgBlocks = document.querySelectorAll(".ibg");
 
 function setImgToBackground() {
   ibgBlocks.forEach((block) => {
-    let image = block.document.querySelector("img");
+    let image = block.querySelector("img");
 
-    block.classList.cssText = `
-	background: url(${image.getAttribute("src")}) center no-repeat';
-	background-size : cover;
-`;
+    block.style.cssText = `
+			background: url(${image.getAttribute("src")}) center no-repeat;
+			background-size : cover;
+		`;
 
     image.style.display = "none";
   });
@@ -130,8 +150,7 @@ setImgToBackground();
 let categoriesInputs = document.querySelectorAll(".checkbox__input"),
   categoriesText = document.querySelectorAll(".checkbox__text"),
   checkedInputs = [],
-	selectTitle = document.querySelector(".search-intro__title");
-	
+  selectTitle = document.querySelector(".search-intro__title");
 
 categoriesInputs.forEach((input, index) => {
   input.addEventListener("click", function (event) {
