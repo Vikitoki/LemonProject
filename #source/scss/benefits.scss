@@ -1,0 +1,148 @@
+.benefits {
+  background-color: #fbfaf8;
+  padding-top: 83px;
+
+  @media (max-width: $md2 + px) {
+    padding-top: 40px;
+  }
+
+  @media (max-width: $md3 + px) {
+    padding-top: 30px;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__top {
+    margin-bottom: 40px;
+
+    @media (max-width: $md2 + px) {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.content-benefits {
+  &__container {
+    padding-top: 85px;
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    @media (max-width: $md3 + px) {
+      flex-wrap: wrap;
+      padding-top: 20px;
+    }
+  }
+
+  &__column {
+    flex: 0 0 50%;
+
+    @media (max-width: $md3 + px) {
+      flex: 1 1 100%;
+      margin-bottom: 30px;
+    }
+
+    &_up {
+      flex: 1 1 auto;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: 1;
+
+      transform: translateX(-50%);
+
+      @media (max-width: $md3 + px) {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    &_up {
+      width: 100%;
+      max-width: 620px;
+    }
+  }
+
+  &__bottom {
+    padding: 48px 0;
+    @media (max-width: $md2 + px) {
+      padding: 20px 0;
+    }
+  }
+}
+
+.bottom-benefits {
+  background-image: linear-gradient(to right, #211b19 0%, #4e3427 100%);
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $md2 + px) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex: 1 1 auto;
+
+    @media (max-width: $md2 + px) {
+      text-align: center;
+
+      margin-bottom: 15px;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 12px;
+
+    font-family: $rale;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+
+    span {
+      color: #c7b299;
+    }
+
+    @media (max-width: $md3 + px) {
+      font-size: 23px;
+      line-height: 30px;
+    }
+  }
+
+  &__remember {
+    font-size: 18px;
+    font-weight: 300;
+    color: #615855;
+    line-height: 20px;
+
+    @media (max-width: $md3 + px) {
+      font-size: 15px;
+    }
+  }
+
+  &__footer {
+    padding-left: 30px;
+
+    @media (max-width: $md2 + px) {
+      padding-left: 0;
+    }
+  }
+}
